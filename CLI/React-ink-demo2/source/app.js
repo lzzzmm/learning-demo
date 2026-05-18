@@ -18,6 +18,10 @@ export default function App({name = 'Stranger'}) {
 			return;
 		}
 
+		if(key.backspace){
+			setInput(prev => prev.slice(0, -1));
+		}
+
 		// 回车发送
 		if(key.return){
 			const userMessage = {
@@ -38,6 +42,12 @@ export default function App({name = 'Stranger'}) {
 			]);
 
 			setInput('');
+			return;
+		}
+
+		// 👇 关键：记录输入
+		if (!key.return) {
+			setInput(prev => prev + value);
 			return;
 		}
 	});
