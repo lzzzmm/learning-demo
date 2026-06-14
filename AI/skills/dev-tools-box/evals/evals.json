@@ -1,0 +1,68 @@
+{
+  "skill_name": "dev-tools-box",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "把 unix 时间戳 1700000000 转成可读时间",
+      "expected_output": "输出包含 UTC 时间、本地时间、ISO8601 三种格式",
+      "files": [],
+      "expectations": [
+        "输出包含 UTC 时间",
+        "输出包含本地时间",
+        "输出包含 ISO8601 格式",
+        "输出没有多余的解释文字，只有转换结果"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "base64 解码: SGVsbG8gV29ybGQ=",
+      "expected_output": "输出 Decoded 结果为 'Hello World'",
+      "files": [],
+      "expectations": [
+        "输出包含 'Hello World' 解码结果",
+        "输出是纯结果，无解释"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "格式化这个 JSON: {\"name\":\"test\",\"value\":123}",
+      "expected_output": "输出缩进格式化的 JSON，包含 name 和 value 字段",
+      "files": [],
+      "expectations": [
+        "输出是格式化的 JSON（有缩进）",
+        "输出包含 name: test 和 value: 123"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "URL 编码: hello world",
+      "expected_output": "输出 URL 编码后的字符串 'hello%20world'",
+      "files": [],
+      "expectations": [
+        "输出包含编码后的结果",
+        "输出包含 'hello%20world'"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "计算 MD5 和 SHA256: hello world",
+      "expected_output": "输出 MD5 和 SHA256 两个哈希值",
+      "files": [],
+      "expectations": [
+        "输出包含 MD5 哈希值 5eb63bbbe01eeed093cb22bb8f5acdc3",
+        "输出包含 SHA256 哈希值 b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Cron 表达式 */5 * * * * 的未来 8 次执行时间",
+      "expected_output": "输出按时间顺序排列的 8 个 UTC 时间，间隔 5 分钟",
+      "files": [],
+      "expectations": [
+        "输出包含 8 个时间",
+        "每个时间格式为 YYYY-MM-DD HH:MM:SS UTC",
+        "时间按递增顺序排列"
+      ]
+    }
+  ]
+}

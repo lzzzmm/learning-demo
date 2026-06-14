@@ -1,8 +1,6 @@
-﻿import code
-from hashlib import new
-
-from fastapi import FastAPI, APIRouter
-from pydantic import BaseModel
+﻿from fastapi import APIRouter
+from message import FastApiBaseModel, ChatRequest, CommunicateMessageModel
+from aiService import deepSeekInvoke
 
 router = APIRouter()
 # 根路由
@@ -11,9 +9,7 @@ def read_root():
     obj =  FastApiBaseModel(code = 200, message = "success", data = None)
     return obj
 
-
-
-class FastApiBaseModel(BaseModel):
-    code: int
-    message: str
-    data: object
+@router.post("/user/llm")
+def commmunication_with_llm(req: ChatRequest):
+    message = CommunicateMessageModel(role="user", content=req.message)
+    return deepSeekInvoke(message)
